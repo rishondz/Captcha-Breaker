@@ -23,8 +23,7 @@ test_generator = DataLoader(ImageData(path,transform=trans),batch_size = 1,shuff
 
 m = timm.create_model('efficientnet_b0', pretrained=True)
 m.classifier = nn.Linear(in_features=1280, out_features=11, bias=True)
-m.load_state_dict(torch.load('Weights/TIMM Model 4.11'))
-
+m.load_state_dict(torch.load('Weights/TIMM Model 4.11', map_location=torch.device('cpu')))
 'Classifying Image...'
 
 # Add a placeholder
